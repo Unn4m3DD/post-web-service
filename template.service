@@ -1,0 +1,5 @@
+[Unit]
+Description=Network Service
+
+[Service]
+ExecStart=ping 8.8.8.8
