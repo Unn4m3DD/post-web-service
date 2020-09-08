@@ -34,10 +34,10 @@ let active_services = {}
 
 let current_port = 3000
 fs.readdirSync(__dirname + path.sep + "..").filter(e => e != "post_web_service").forEach(e => repo_update(e))
-
+git@github.com:Unn4m3DD/sorting-algorithms-visualizer.git
 app.get('/add', (req, res) => {
   shell.cd(__dirname + path.sep + "..")
-  shell.exec(`git clone https://github.com/${repo_owner}/${req.query.repo}`)
+  shell.exec(`git clone git@github.com:${repo_owner}/${req.query.repo}`)
   res.send(`https://github.com/${repo_owner}/${req.query.repo} cloned`)
 })
 
