@@ -22,4 +22,7 @@ The program will set an environment variable (`PORT`) for the port on wich the s
 Integrated with github action or gitlab CI/CD it is trivial to automate a publish on push with a simple get request to this API  
 
 ## TODO
-Add credentials to the get request so it can only be accessed by the owner  
+Add credentials to the get request so it can only be accessed by the owner 
+
+# Service Running on systemd
+![Service Running](https://raw.githubusercontent.com/Unn4m3DD/post-web-service/master/post_web_service.png)
