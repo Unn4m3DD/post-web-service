@@ -15,18 +15,20 @@ const repo_update = (repo) => {
     `[Unit]\n` +
     `Description=${repo} Service\n` +
     `[Service]\n` +
-    `ExecStart=/usr/bin/sh -c "cd ${repo_path} && PORT=${current_port} ${run}"\n`
+    `ExecStart=/usr/bin/sh -c "cd ${repo_path} && PORT=${repo == "micro-site-ams" ? 90 : current_port} ${run}"\n`
   fs.writeFileSync(`/etc/systemd/system/${repo}.service`, systemd_service)
   active_services[repo] = current_port
   shell.exec(`sudo systemctl daemon-reload && sudo systemctl restart ${repo}`)
-  if (++current_port > 4000) current_port = 3000
+  
+  if(++current_port > 4000) current_port = 3000
 }
 
 
 const repo_owner = "Unn4m3DD"
-let global_ip;
+let global_ip = "148.63.171.198";
 fetch("https://ipecho.net/plain").then(async (res) => {
   global_ip = await res.text()
+  if(global_ip == undefined) global_ip = "148.63.171.198";
   console.log(`http://${global_ip}`)
 })
 
@@ -34,10 +36,9 @@ let active_services = {}
 
 let current_port = 3000
 fs.readdirSync(__dirname + path.sep + "..").filter(e => e != "post_web_service").forEach(e => repo_update(e))
-git@github.com:Unn4m3DD/sorting-algorithms-visualizer.git
 app.get('/add', (req, res) => {
   shell.cd(__dirname + path.sep + "..")
-  shell.exec(`git clone git@github.com:${repo_owner}/${req.query.repo}`)
+  shell.exec(`echo "\n" | git clone git@github.com:${repo_owner}/${req.query.repo}`)
   res.send(`https://github.com/${repo_owner}/${req.query.repo} cloned`)
 })
 
