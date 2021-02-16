@@ -27,12 +27,7 @@ const repo_update = async (repo) => {
 
 
 const repo_owner = "Unn4m3DD"
-let global_ip = "148.63.171.198";
-fetch("https://ipecho.net/plain").then(async (res) => {
-  global_ip = await res.text()
-  if (global_ip == undefined) global_ip = "148.63.171.198";
-  console.log(`http://${global_ip}`)
-})
+let global_ip = "unn4m3dd.xyz";
 
 let active_services = {}
 
