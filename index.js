@@ -46,7 +46,7 @@ server {
     `[Unit]\n` +
     `Description=${repo} Service\n` +
     `[Service]\n` +
-    `ExecStart=/usr/bin/sh -c "cd ${repo_path} && PORT=${repo == "microsite-pei" ? 90 : hashCode(repo)} ${run}"\n`
+    `ExecStart=/usr/bin/sh -c "cd ${repo_path} && PORT=${hashCode(repo)} ${run}"\n`
   fs.writeFileSync(`/etc/systemd/system/${repo}.service`, systemd_service)
   console.log("systemd config written to " + `/etc/systemd/system/${repo}.service`)
 
