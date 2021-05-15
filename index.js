@@ -19,7 +19,7 @@ const repo_update = async (repo) => {
   const repo_path = __dirname + path.sep + ".." + path.sep + repo
   shell.cd(repo_path)
   const git_status = shell.exec(`git pull --no-rebase`).stdout
-  const { setup, run, title, subtitle, image } = JSON.parse(fs.readFileSync(path.resolve(repo_path, '.run.json')));
+  const { setup, run, title, subtitle, image, video } = JSON.parse(fs.readFileSync(path.resolve(repo_path, '.run.json')));
   if (git_status.indexOf("up to date") == -1 && setup != "")
     //if (setup != "")
     shell.exec(setup)
@@ -53,7 +53,8 @@ server {
   active_services[repo] = {
     title,
     subtitle,
-    image
+    image, 
+    video
   }
   shell.exec(`sudo systemctl daemon-reload && sudo systemctl restart ${repo} && sudo systemctl restart nginx`)
 
@@ -88,7 +89,7 @@ app.get('/', (req, res) => {
   for (let key in active_services) {
     result += `
 {
-  repo: "${key}", image: "${active_services[key].image}",
+  repo: "${key}", video: "${active_services[key].video}", image: "${active_services[key].image}",
   title: "${active_services[key].title}", subtitle: "${active_services[key].subtitle}"
 },`
   }

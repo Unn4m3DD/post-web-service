@@ -22,6 +22,7 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+      padding: 5px;
     }
 
 
@@ -127,47 +128,7 @@
   </style>
   <script>
     let data = [
-
-      {
-        repo: "2048-ai", image: "https://raw.githubusercontent.com/Unn4m3DD/2048-ai/master/demo.gif",
-        title: "2048 AI", subtitle: "Artificial Intelligence that plays 2048"
-      },
-      {
-        repo: "Jogos-Retro-em-HTML", image: "https://raw.githubusercontent.com/Unn4m3DD/Jogos-Retro-em-HTML/master/demo.gif",
-        title: "Retro games in HTML and JS", subtitle: "Simple demo of retro games in HTML and JS"
-      },
-      {
-        repo: "micro-site-ams", image: "https://raw.githubusercontent.com/Unn4m3DD/micro-site-ams/master/demo.gif",
-        title: "Website promoting PawDemic", subtitle: "Website promoting a school project"
-      },
-      {
-        repo: "microsite-pei", image: "https://raw.githubusercontent.com/Unn4m3DD/microsite-pei/master/demo.gif",
-        title: "Website promotion C-ITS", subtitle: "Website promoting mobile app and traffic control center"
-      },
-      {
-        repo: "p5-stuff", image: "https://raw.githubusercontent.com/Unn4m3DD/p5-stuff/master/demo.gif",
-        title: "p5.js demos", subtitle: "Random scenes using p5.js"
-      },
-      {
-        repo: "path-finding", image: "https://raw.githubusercontent.com/Unn4m3DD/path-finding/master/demo.gif",
-        title: "Path Finding Algorithms", subtitle: "Demo of path finding algorithms in js using canvas"
-      },
-      {
-        repo: "raycast-p5-js", video:"demo.mp4",
-        title: "Raycast demo", subtitle: "Raycast using p5.js"
-      },
-      {
-        repo: "sorting-algorithms-visualizer", image: "https://raw.githubusercontent.com/Unn4m3DD/sorting-algorithms-visualizer/master/demo.png",
-        title: "Sorting algorithms visualizer", subtitle: "Sorting algorithms visualizer implemented in JS/TS and HTML"
-      },
-      {
-        repo: "xadrez-para-cegos", image: "https://raw.githubusercontent.com/Unn4m3DD/xadrez-para-cegos/master/demo.gif",
-        title: "Board Description Language Demo", subtitle: "Board description language output example"
-      },
-      {
-        repo: "site-latex", image: "https://raw.githubusercontent.com/Unn4m3DD/site_latex/master/latex_home.png",
-        title: "Site LateX", subtitle: "Website with LateX Tutorials"
-      },
+      <<template>>
     ];
     window.onload = function () {
       let parent = document.getElementById("parent");
@@ -177,7 +138,7 @@
 <div class="item_container">
   <div class="item">
     <div class="img-container">
-      ${item.video ? 
+      ${item.video != "undefined" ? 
       `<video loop autoplay muted>
         <source src="${item.video}" type="video/mp4">
       </video>`:
