@@ -14,6 +14,7 @@
 
     body {
       background-color: rgb(229, 237, 250);
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     .container {
@@ -68,9 +69,6 @@
       font-size: 10pt;
     }
 
-    .text {
-      flex-direction: column;
-    }
 
     .github {
       height: 40px;
@@ -92,19 +90,31 @@
       justify-content: center;
       font-weight: bold;
       padding: 0 10px;
+      margin-bottom: 10px;
     }
-
+    .go-to-website:hover{
+      background-color: rgb(0, 147, 233);
+    }
+    .go-to-website:active{
+      background-color: rgb(0, 135, 212);
+    }
     .bottom-container {
       justify-content: space-between;
       width: 100%;
-      padding: 20px
+      flex: 1;
+      padding-top: 15px;
     }
 
     .button-container {
       justify-content: space-evenly;
-      flex: .8;
+      width: 40%;
+      flex-wrap: wrap;
     }
 
+    .text {
+      flex-direction: column;
+      width: 60%;
+    }
     a {
       color: white;
       text-decoration: none;
@@ -112,7 +122,47 @@
   </style>
   <script>
     let data = [
-      <<template>>
+
+      {
+        repo: "2048-ai", image: "https://raw.githubusercontent.com/Unn4m3DD/2048-ai/master/demo.gif",
+        title: "2048 AI", subtitle: "Artificial Intelligence that plays 2048"
+      },
+      {
+        repo: "Jogos-Retro-em-HTML", image: "https://raw.githubusercontent.com/Unn4m3DD/Jogos-Retro-em-HTML/master/demo.gif",
+        title: "Retro games in HTML and JS", subtitle: "Simple demo of retro games in HTML and JS"
+      },
+      {
+        repo: "micro-site-ams", image: "https://raw.githubusercontent.com/Unn4m3DD/micro-site-ams/master/demo.gif",
+        title: "Website promoting PawDemic", subtitle: "Website promoting a school project"
+      },
+      {
+        repo: "microsite-pei", image: "https://raw.githubusercontent.com/Unn4m3DD/microsite-pei/master/demo.gif",
+        title: "Website promotion C-ITS", subtitle: "Website promoting mobile app and traffic control center"
+      },
+      {
+        repo: "p5-stuff", image: "https://raw.githubusercontent.com/Unn4m3DD/p5-stuff/master/demo.gif",
+        title: "p5.js demos", subtitle: "Random scenes using p5.js"
+      },
+      {
+        repo: "path-finding", image: "https://raw.githubusercontent.com/Unn4m3DD/path-finding/master/demo.gif",
+        title: "Path Finding Algorithms", subtitle: "Demo of path finding algorithms in js using canvas"
+      },
+      {
+        repo: "raycast-p5-js", image: "https://raw.githubusercontent.com/Unn4m3DD/raycast-p5-js/master/demo.gif",
+        title: "Raycast demo", subtitle: "Raycast using p5.js"
+      },
+      {
+        repo: "sorting-algorithms-visualizer", image: "https://raw.githubusercontent.com/Unn4m3DD/sorting-algorithms-visualizer/master/demo.png",
+        title: "Sorting algorithms visualizer", subtitle: "Sorting algorithms visualizer implemented in JS/TS and HTML"
+      },
+      {
+        repo: "xadrez-para-cegos", image: "https://raw.githubusercontent.com/Unn4m3DD/xadrez-para-cegos/master/demo.gif",
+        title: "Board Description Language Demo", subtitle: "Board description language output example"
+      },
+      {
+        repo: "site-latex", image: "https://raw.githubusercontent.com/Unn4m3DD/site_latex/master/latex_home.png",
+        title: "Site LateX", subtitle: "Website with LateX Tutorials"
+      },
     ];
     window.onload = function () {
       let parent = document.getElementById("parent");
