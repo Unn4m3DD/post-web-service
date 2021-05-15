@@ -55,6 +55,7 @@
       border-radius: 5px;
     }
 
+    video,
     img {
       width: 100%;
       min-width: 300px;
@@ -92,12 +93,15 @@
       padding: 0 10px;
       margin-bottom: 10px;
     }
-    .go-to-website:hover{
+
+    .go-to-website:hover {
       background-color: rgb(0, 147, 233);
     }
-    .go-to-website:active{
+
+    .go-to-website:active {
       background-color: rgb(0, 135, 212);
     }
+
     .bottom-container {
       justify-content: space-between;
       width: 100%;
@@ -115,6 +119,7 @@
       flex-direction: column;
       width: 60%;
     }
+
     a {
       color: white;
       text-decoration: none;
@@ -148,7 +153,7 @@
         title: "Path Finding Algorithms", subtitle: "Demo of path finding algorithms in js using canvas"
       },
       {
-        repo: "raycast-p5-js", image: "https://raw.githubusercontent.com/Unn4m3DD/raycast-p5-js/master/demo.gif",
+        repo: "raycast-p5-js", video:"demo.mp4",
         title: "Raycast demo", subtitle: "Raycast using p5.js"
       },
       {
@@ -172,7 +177,12 @@
 <div class="item_container">
   <div class="item">
     <div class="img-container">
-      <img src="${item.image}">
+      ${item.video ? 
+      `<video loop autoplay muted>
+        <source src="${item.video}" type="video/mp4">
+      </video>`:
+      `<img src="${item.image}">`
+    }
     </div>
     <div class="bottom-container">
       <div class="text">
@@ -186,8 +196,8 @@
         </a>
       </div>
     </div>
-  </div>
-</div>
+  </div >
+</div >
 `
       }
       parent.innerHTML = generated
